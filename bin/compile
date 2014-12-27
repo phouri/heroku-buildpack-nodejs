@@ -84,7 +84,7 @@ status "Installing Compass"
 export GEM_HOME=$build_dir/.gem/ruby/1.9.1
 PATH="$GEM_HOME/bin:$PATH"
 status "Path is "
-echo $path
+echo $PATH
 
 if test -d $cache_dir/ruby/; then
   status "Restoring ruby gems directory from cache"
@@ -111,6 +111,7 @@ fi
   fi
 
   status "Installing dependencies"
+  echo "Path is " $PATH
   # Make npm output to STDOUT instead of its default STDERR
   npm install --userconfig $build_dir/.npmrc --production 2>&1 | indent
 )
